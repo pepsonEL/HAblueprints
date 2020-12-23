@@ -1,7 +1,7 @@
 blueprint:
   name: Battery Level Notification
   description: Send a notification to a device when battery drops below a specified value
-  source_url: https://gist.github.com/tube0013/fbf33e4b425fcd7632dd0a253317ae03
+  source_url: https://github.com/pepsonEL/HAblueprints/blob/main/battery_alert
   domain: automation
   input:
     battery_entity:
