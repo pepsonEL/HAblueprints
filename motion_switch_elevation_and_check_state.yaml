@@ -50,7 +50,7 @@ variables:
 condition:
 - '{{ state_attr(''sun.sun'',''elevation'') <= (below_elevation | float)}}'
 condition:
-- '{{ (states[switch_target].state == 'off') }}'
+- '{{ states[switch_target].state == 'off' }}'
 action:
 - service: switch.turn_on
   target: !input 'switch_target'
