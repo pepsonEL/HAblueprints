@@ -47,9 +47,6 @@ trigger:
   to: 'on'
 variables:
   below_elevation: !input 'below_elevation'
-#condition:
-#  - condition:
-#   '{{ state_attr(''sun.sun'',''elevation'') <= (below_elevation | float)}}'
 condition:
 - '{{ states[switch_target].state == 'off' }}'
 action:
