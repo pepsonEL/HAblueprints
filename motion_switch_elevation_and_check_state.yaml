@@ -49,7 +49,7 @@ variables:
   below_elevation: !input 'below_elevation'
 condition:
   - condition: template
-    value_template: '{{ (states[switch_target].state == 'off') }}'
+    value_template: '{{ states[switch_target].state == 'off' }}'
 action:
 - service: switch.turn_on
   target: !input 'switch_target'
