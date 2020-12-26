@@ -62,4 +62,4 @@ action:
     to: 'off'
 - delay: !input 'no_motion_wait'
 - service: switch.turn_off
-  target: !input 'switch_target
+  target: !input 'switch_target'
