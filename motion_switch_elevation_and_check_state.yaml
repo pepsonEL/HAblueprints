@@ -48,7 +48,10 @@ trigger:
 variables:
   below_elevation: !input 'below_elevation'
 condition:
-- '{{ states[switch_target].state == 'off' }}'
+- '{{ state_attr(''sun.sun'',''elevation'') <= (below_elevation | float)}}'
+- condition: state
+  entity_id: 'switch_target'
+  state: 'off'
 action:
 - service: switch.turn_on
   target: !input 'switch_target'
