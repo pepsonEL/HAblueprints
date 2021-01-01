@@ -56,10 +56,10 @@ variables:
   below_elevation: !input 'below_elevation'
   blocker_entity: !input blocker_entity
 condition:
-- condition: template
-  value_template: '{{ state_attr(''sun.sun'',''elevation'') <= (below_elevation | float)}}'
-- condition: template
-  value_template: '{{ (blocker_entity == none) or (states[blocker_entity].state == 'off') }}'
+  - condition: template
+    value_template: '{{ state_attr(''sun.sun'',''elevation'') <= (below_elevation | float)}}'
+  - condition: template
+    value_template: '{{ (blocker_entity == none) or (states[blocker_entity].state == 'off') }}'
 action:
 - service: switch.turn_on
   target: !input 'switch_target'
