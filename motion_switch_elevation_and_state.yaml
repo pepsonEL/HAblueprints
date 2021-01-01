@@ -40,7 +40,7 @@ blueprint:
           mode: slider
     blocker_entity:
       name: (OPTIONAL) Blocking entity
-      description: If this entity's state is on, it will prevent the automation from running. E.g. sleepmode or away mode.
+      description: Jeśli stan tej jednostki jest włączony, uniemożliwi to uruchomienie automatyzacji.
       default:
       selector:
         entity:
@@ -54,7 +54,6 @@ trigger:
   to: 'on'
 variables:
   below_elevation: !input 'below_elevation'
-  blocker_entity: !input blocker_entity
 condition:
   - condition: template
     value_template: >
