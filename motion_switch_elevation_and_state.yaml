@@ -1,8 +1,7 @@
-  
-blueprint:
-  name: Motion-activated Switch with Elevation and state
+  blueprint:
+  name: Motion-activated Switch with Elevation
   domain: automation
-  source_url: https://github.com/pepsonEL/HAblueprints/blob/main/motion_switch_elevation_and_state.yaml
+  source_url: https://github.com/pepsonEL/HAblueprints/blob/main/motion_switch_elevation.yaml
   input:
     motion_entity:
       name: Motion Sensor
@@ -39,6 +38,12 @@ blueprint:
           unit_of_measurement: degrees
           step: 1.0
           mode: slider
+    blocker_entity:
+      name: (OPTIONAL) Blocking entity
+      description: If this entity's state is on, it will prevent the automation from running. E.g. sleepmode or away mode.
+      default:
+      selector:
+        entity:
 mode: restart
 max_exceeded: silent
 trigger:
@@ -48,11 +53,12 @@ trigger:
   to: 'on'
 variables:
   below_elevation: !input 'below_elevation'
+  blocker_entity: !input blocker_entity
 condition:
-- '{{ state_attr(''sun.sun'',''elevation'') <= (below_elevation | float)}}'
-- condition: state
-  entity_id: 'switch_target'
-  state: 'off'
+- condition: template
+  value_template: '{{ state_attr(''sun.sun'',''elevation'') <= (below_elevation | float)}}'
+- condition: template
+    value_template: '{{ (blocker_entity == none) or (states[blocker_entity].state == 'off') }}'
 action:
 - service: switch.turn_on
   target: !input 'switch_target'
