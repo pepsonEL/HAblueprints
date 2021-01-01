@@ -44,6 +44,7 @@
       default:
       selector:
         entity:
+          domain: switch
 mode: restart
 max_exceeded: silent
 trigger:
