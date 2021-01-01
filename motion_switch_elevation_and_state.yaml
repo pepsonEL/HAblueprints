@@ -1,7 +1,7 @@
 blueprint:
   name: Motion-activated Switch with Elevation
   domain: automation
-  source_url: https://github.com/pepsonEL/HAblueprints/blob/main/motion_switch_elevation.yaml
+  source_url: https://github.com/pepsonEL/HAblueprints/blob/main/motion_switch_elevation_and_state.yaml
   input:
     motion_entity:
       name: Motion Sensor
