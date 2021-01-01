@@ -1,5 +1,5 @@
 blueprint:
-  name: Motion-activated Switch with Elevation
+  name: Motion-activated Switch with Elevation and state
   domain: automation
   source_url: https://github.com/pepsonEL/HAblueprints/blob/main/motion_switch_elevation_and_state.yaml
   input:
