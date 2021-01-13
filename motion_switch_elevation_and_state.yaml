@@ -1,7 +1,7 @@
 blueprint:
   name: Motion-activated Switch with Sun Elevation
   domain: automation
-  source_url: https://gist.github.com/Menethoran/219aff4827ef561065d28e53742485b7
+  source_url: https://github.com/pepsonEL/HAblueprints/blob/main/motion_switch_elevation_and_state.yaml
   input:
     motion_entity:
       name: Motion Sensor
